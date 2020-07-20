@@ -1,0 +1,35 @@
+<mat-vertical-stepper [linear]="isLinear" #stepper [selectedIndex]="0">
+    <ng-template matStepperIcon="edit">
+        <mat-icon>done</mat-icon>
+      </ng-template>
+
+
+      <ng-template matStepperIcon="number" let-index="index">
+        {{index+1}}
+        </ng-template>
+        
+    <mat-step>
+        <app-step-one>
+          <ng-template matStepLabel>Fill out your name  
+            <span *ngIf="stepper.selectedIndex > 0"><a class="btn enableEdit" (click)="move(0)">Edit</a></span>         
+            </ng-template>
+         
+        </app-step-one>
+           
+      </mat-step>
+     
+    <mat-step>
+        <app-step-two>
+          <ng-template matStepLabel>Fill out your last name  
+          <span *ngIf="stepper.selectedIndex > 1"><a class="btn" (click)="move(1)">Edit</a></span>
+          </ng-template>
+        </app-step-two>
+    </mat-step>
+   
+    <mat-step label="step-3">
+        Third Form
+    </mat-step>
+  </mat-vertical-stepper>
+
+
+  

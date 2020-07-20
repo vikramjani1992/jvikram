@@ -1,0 +1,17 @@
+<div *ngIf="cartItems.length === 0" class="alert alert-info">Your cart is empty</div>
+<ul *ngIf="cartItems.length > 0" class="list-group">
+    <li class="list-group-item" *ngFor="let item of cartItems">
+    <app-cart-item [cartItem]="item"></app-cart-item>
+    <div>
+    <button *ngIf="item.quantity > 1" class="btn btn-sm btn-primary" (click)="reduceQuanity(item)" >-</button> Qty <button class="btn btn-sm btn-primary" (click)="increaseQuanity(item)" >+</button>
+    <button *ngIf="item.quantity >= 1" class="btn btn-sm btn-primary btn-remove" (click)="removeFromCart(item)">Remove item from cart</button>
+</div>    
+</li>
+    <li class="list-group-item active">
+        <strong>Total : {{cartTotal | currency:'$'}}</strong>
+    </li>
+</ul>
+
+<div *ngIf="cartItems.length > 0" class="margin-top">
+    <button class="btn btn-primary" (click)="goToCheckOut()" >Proceed To Checkout</button>
+</div>

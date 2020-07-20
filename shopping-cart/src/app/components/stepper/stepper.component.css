@@ -1,0 +1,6 @@
+::ng-deep .mat-step-header  {
+    pointer-events: none;
+}
+.enableEdit{
+    pointer-events: auto;
+}
